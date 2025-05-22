@@ -1,4 +1,6 @@
-# Patient Registration App
+# 🏥 Patient Registration App 
+
+[Live Demo ->](https://patient-registration-psi.vercel.app/)
 
 A frontend-only patient registration system built with React, Vite, Tailwind CSS, and PGlite (Dblite) for persistent, cross-tab synchronized storage in the browser.
 
