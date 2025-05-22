@@ -5,7 +5,10 @@
   worker({
     async init(options) {
       return new PGlite({
+        // Register the 'live' extension to support cross-tab change detection & subscriptions
         extensions: { live },
+         // IndexedDB for persistent storage in the browser
+        dataDir: 'idb://patient-db',
       });
     },
   });
