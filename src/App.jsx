@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Dashboard from './pages/Dashboard';
 import { PGliteProvider, usePGlite } from '@electric-sql/pglite-react';
+import { BrowserRouter } from 'react-router-dom';
 import pg from './db';
 
 function AppContent() {
@@ -22,7 +25,7 @@ function AppContent() {
           );
         `);
         console.log('Patients table ready.');
-        setReady(true);
+        setReady(true); // <- signal that DB is ready
       } catch (error) {
         console.error('Error creating patients table:', error);
       }
@@ -39,12 +42,19 @@ function AppContent() {
     );
   }
 
+  return (
+    <Routes>
+      <Route path="/" element={<Dashboard />} />
+    </Routes>
+  );
 }
 
 function App() {
   return (
     <PGliteProvider db={pg}>
+      <BrowserRouter>
         <AppContent />
+      </BrowserRouter>
     </PGliteProvider>
   );
 }
