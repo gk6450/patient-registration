@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
+import SQLConsolePage from './pages/SQLConsolePage';
 import { PGliteProvider, usePGlite } from '@electric-sql/pglite-react';
 import { BrowserRouter } from 'react-router-dom';
 import pg from './db';
@@ -45,6 +46,7 @@ function AppContent() {
   return (
     <Routes>
       <Route path="/" element={<Dashboard />} />
+      <Route path="/sql-console" element={<SQLConsolePage />} />
     </Routes>
   );
 }
